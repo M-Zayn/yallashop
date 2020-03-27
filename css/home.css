@@ -2069,6 +2069,9 @@ html[dir=rtl] .copy .copyrights span {
     right: unset;
     left: 0;
   }
+  html[dir=rtl] .privileges-back .privileges .privilege .prev-img img {
+    margin: 0 0 6px 0;
+  }
   html[dir=rtl] .footer .contact-info h3::before {
     right: unset;
     left: 0;
@@ -2078,6 +2081,12 @@ html[dir=rtl] .copy .copyrights span {
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
     right: unset;
+  }
+}
+
+@media (max-width: 480px) {
+  html[dir=rtl] .zx-search-pop .zx-search input {
+    padding: 6px 12px 6px 6px;
   }
 }
 
