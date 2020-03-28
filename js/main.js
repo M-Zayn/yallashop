@@ -4,6 +4,8 @@ $(window).on("load", function () {
   $(".pre-loader").fadeOut(500, function () {
       $(this).remove();
       $('html, body').css("overflow-y", "visible");
+
+
   });
 });
 
@@ -81,11 +83,9 @@ $(function() {
             loop:true
         }
     }
-  });
+ });
   $( ".owl-prev").html('<img src="images/arrow-left.png">');
   $( ".owl-next").html('<img src="images/arrow-right.png">');
-
-  
 
 
 
@@ -116,7 +116,12 @@ $(function() {
     e.stopPropagation();
   });
 
-  
+
+  $(".zx-fixed-menu .overlay .side-menu ul .slide-down").on("click", function () {
+    $(this).toggleClass("active");
+    $(this).children("ul").slideToggle();
+  });
+
   if($(window).width() < 992) {
     $(".footer .contact-info h3").on("click", function () {
       $(this).toggleClass("active");
@@ -125,6 +130,8 @@ $(function() {
     } else {
       
     }
-  
+
+
+
+
 });
-    
