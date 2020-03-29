@@ -1196,6 +1196,10 @@ html, body {
 }
 
 /* ------ copy end ------ */
+.side-menu {
+  display: none;
+}
+
 .zx-search-popup, .menu {
   display: none;
 }
@@ -1217,11 +1221,49 @@ html, body {
   .upper-bar {
     display: none;
   }
+  .fixed-nav {
+    position: fixed;
+    width: 100%;
+    z-index: 99999;
+    background-color: #FFF;
+  }
+  .padding-top {
+    padding: 80px 0 0 0;
+  }
   .zx-nav {
     padding: 16px 0;
+    position: fixed;
+  }
+  .zx-nav .zx-container .logo img {
+    margin: 0;
+  }
+  .zx-nav .zx-container .active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    bottom: -55px !important;
   }
   .zx-nav .zx-container .zx-search {
-    display: none;
+    width: 80%;
+    position: absolute;
+    bottom: -45px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    margin: 0;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+  .zx-nav .zx-container .zx-search .bootstrap-select {
+    width: 30%;
+  }
+  .zx-nav .zx-container .zx-search input {
+    width: 70%;
+  }
+  .zx-nav .zx-container .zx-search .zx-search-icon {
+    background-color: rgba(204, 51, 65, 0.8);
   }
   .zx-nav .zx-container .zx-on-card img {
     padding: 0;
@@ -1267,304 +1309,53 @@ html, body {
     color: #717171;
     font-weight: 600;
   }
-  .zx-search-pop .overlay {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 999;
-  }
-  .zx-search-pop .overlay .close {
-    width: 50px;
-    height: 50px;
-    color: #FFF;
-    background-color: rgba(204, 51, 65, 0.8);
-    border-radius: 50%;
-    opacity: .7;
-    cursor: pointer;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+  .zx-nav .side-menu {
     position: absolute;
-    top: 10%;
+    top: 100%;
     left: 50%;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
-  }
-  .zx-search-pop .overlay .close i {
-    color: #ffffff;
-  }
-  .zx-search-pop .zx-search {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
-    width: 80%;
-    height: 55px;
-    border: 1px solid;
-    border-color: #e6e6e6;
-    margin: 0 auto 0 auto;
     z-index: 9999;
-  }
-  .zx-search-pop .zx-search .bootstrap-select {
-    width: 30% !important;
-    height: 100%;
-    position: relative;
-  }
-  .zx-search-pop .zx-search .bootstrap-select::after {
-    content: "";
-    width: 1px;
-    height: 32px;
-    background-color: #dddddd;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
-  }
-  .zx-search-pop .zx-search .bootstrap-select .dropdown-toggle {
-    height: 100%;
-    border: none;
-    border-radius: 0;
-    padding: 6px 20px 6px 29px;
-    -webkit-transition: all .5s ease-in-out;
-    transition: all .5s ease-in-out;
-  }
-  .zx-search-pop .zx-search .bootstrap-select .dropdown-toggle:hover, .zx-search-pop .zx-search .bootstrap-select .dropdown-toggle:focus {
-    background-color: #FFF;
-  }
-  .zx-search-pop .zx-search .bootstrap-select .dropdown-toggle .caret {
-    right: 20px;
-  }
-  .zx-search-pop .zx-search .bootstrap-select .dropdown-toggle .filter-option-inner-inner {
-    font-family: bold;
-    font-size: 14px;
-    color: #5c5c5c;
-    text-transform: uppercase;
-  }
-  .zx-search-pop .zx-search .bootstrap-select .dropdown-toggle .open > .dropdown-menu {
-    border: none;
-    border-radius: 0;
-    -webkit-box-shadow: none;
-            box-shadow: none;
-    background-color: #FFF !important;
-  }
-  .zx-search-pop .zx-search .bootstrap-select .dropdown-toggle .open > .dropdown-menu {
-    border: none;
-    border-radius: 0;
-  }
-  .zx-search-pop .zx-search .bootstrap-select .dropdown-toggle .open > .dropdown-menu:hover + .dropdown-toggle, .zx-search-pop .zx-search .bootstrap-select .dropdown-toggle .open > .dropdown-menu:focus + .dropdown-toggle {
-    background-color: #FFF !important;
-  }
-  .zx-search-pop .zx-search .bootstrap-select .btn.dropdown-toggle.btn-default {
-    background: #FFF;
-  }
-  .zx-search-pop .zx-search .bootstrap-select .btn-default.active, .zx-search-pop .zx-search .bootstrap-select .btn-default:active, .zx-search-pop .zx-search .bootstrap-select .open > .dropdown-toggle.btn-default {
-    background-color: #FFF !important;
-  }
-  .zx-search-pop .zx-search .bootstrap-select .dropdown-menu {
-    border: none;
-    border-radius: 0;
-    -webkit-box-shadow: none;
-            box-shadow: none;
-    top: 97%;
-    padding: 5px 0 12px 0;
-    height: 160px !important;
-  }
-  .zx-search-pop .zx-search .bootstrap-select .dropdown-menu:hover + .btn-default.active, .zx-search-pop .zx-search .bootstrap-select .dropdown-menu:hover .btn-default:active, .zx-search-pop .zx-search .bootstrap-select .dropdown-menu:hover .open > .dropdown-toggle.btn-default {
-    background-color: #FFF;
-  }
-  .zx-search-pop .zx-search .bootstrap-select .dropdown-menu li:first-child {
-    display: none;
-  }
-  .zx-search-pop .zx-search .bootstrap-select .dropdown-menu li {
-    -webkit-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
-  }
-  .zx-search-pop .zx-search .bootstrap-select .dropdown-menu li a {
-    -webkit-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
-    font-family: s-bold;
-    font-size: 15px;
-    color: #a2a2a2;
-    background-color: transparent;
-    outline: none;
-    padding: 6px 26px;
-  }
-  .zx-search-pop .zx-search .bootstrap-select .dropdown-menu li a:hover, .zx-search-pop .zx-search .bootstrap-select .dropdown-menu li a:focus {
-    color: #5c5c5c;
-  }
-  .zx-search-pop .zx-search .bootstrap-select .dropdown-menu li:hover, .zx-search-pop .zx-search .bootstrap-select .dropdown-menu li:focus {
-    background-color: transparent;
-    outline: none;
-    color: #5c5c5c;
-  }
-  .zx-search-pop .zx-search .bootstrap-select > select.mobile-device:focus + .dropdown-toggle, .zx-search-pop .zx-search .bootstrap-select .dropdown-toggle:focus {
-    outline: none !important;
-  }
-  .zx-search-pop .zx-search input {
-    width: 70%;
-    height: 100%;
-    border: none;
-    padding: 6px 6px 6px 33px;
-    outline: none;
-  }
-  .zx-search-pop .zx-search input::-webkit-input-placeholder {
-    font-family: reg;
-    font-size: 14px;
-    font-style: italic;
-    color: #c2c2c2;
-  }
-  .zx-search-pop .zx-search input::-moz-placeholder {
-    font-family: reg;
-    font-size: 14px;
-    font-style: italic;
-    color: #c2c2c2;
-  }
-  .zx-search-pop .zx-search input:-ms-input-placeholder {
-    font-family: reg;
-    font-size: 14px;
-    font-style: italic;
-    color: #c2c2c2;
-  }
-  .zx-search-pop .zx-search input::-ms-input-placeholder {
-    font-family: reg;
-    font-size: 14px;
-    font-style: italic;
-    color: #c2c2c2;
-  }
-  .zx-search-pop .zx-search input::placeholder {
-    font-family: reg;
-    font-size: 14px;
-    font-style: italic;
-    color: #c2c2c2;
-  }
-  .zx-search-pop .zx-search .zx-search-icon {
-    width: 44px;
-    height: 44px;
-    cursor: pointer;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    position: absolute;
-    right: 6px;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
-    -webkit-transition: all .5s ease-in-out;
-    transition: all .5s ease-in-out;
-    background-color: rgba(204, 51, 65, 0.8);
-  }
-  .zx-search-pop .zx-search .zx-search-icon i {
-    font-size: 16px;
-    color: white;
-  }
-  .zx-fixed-menu {
-    display: block;
-  }
-  .zx-fixed-menu .overlay {
-    display: none;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 999;
-  }
-  .zx-fixed-menu .overlay .side-menu {
-    width: 260px;
-    height: 100%;
-    padding: 55px 16px 6px;
+    width: 80%;
+    height: 280px;
+    padding: 15px 16px 6px;
     background-color: #FFF;
     overflow: auto;
-    position: absolute;
-    left: -260px;
-    top: 0;
-    -webkit-transition: all .5s ease-in-out;
-    transition: all .5s ease-in-out;
   }
-  .zx-fixed-menu .overlay .side-menu .close {
-    width: 30px;
-    height: 30px;
-    opacity: 1;
-    position: absolute;
-    top: 12px;
-    right: 16px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+  .zx-nav .side-menu ul {
+    padding: 0 25px 0px 25px;
   }
-  .zx-fixed-menu .overlay .side-menu .close i {
-    display: block;
-    color: #717171;
-    font-weight: 600;
-  }
-  .zx-fixed-menu .overlay .side-menu ul {
-    padding: 0 6px 0px 6px;
-  }
-  .zx-fixed-menu .overlay .side-menu ul li {
-    margin: 8px 0;
+  .zx-nav .side-menu ul li {
+    margin: 9px 0;
     position: relative;
   }
-  .zx-fixed-menu .overlay .side-menu ul li a {
+  .zx-nav .side-menu ul li a {
     font-family: reg;
     font-size: 15px;
     color: #717171;
     text-decoration: none;
   }
-  .zx-fixed-menu .overlay .side-menu ul li a:hover, .zx-fixed-menu .overlay .side-menu ul li a:focus {
+  .zx-nav .side-menu ul li a:hover, .zx-nav .side-menu ul li a:focus {
     text-decoration: none;
   }
-  .zx-fixed-menu .overlay .side-menu ul .slide-down {
+  .zx-nav .side-menu ul .slide-down {
     cursor: pointer;
   }
-  .zx-fixed-menu .overlay .side-menu ul .slide-down ul {
+  .zx-nav .side-menu ul .slide-down ul {
     display: none;
     padding: 0 12px 0px 12px;
   }
-  .zx-fixed-menu .overlay .side-menu ul .slide-down ul li a {
+  .zx-nav .side-menu ul .slide-down ul li a {
     color: #717171;
   }
-  .zx-fixed-menu .overlay .side-menu ul .slide-down::after {
+  .zx-nav .side-menu ul .slide-down::after {
     content: '\f067';
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
+    font-size: 12px;
     color: #717171;
+    border: 1px solid #717171;
+    padding: 0 3px;
     -webkit-transition: all .5s;
     transition: all .5s;
     position: absolute;
@@ -1573,11 +1364,8 @@ html, body {
     -webkit-transform: translateY(0%);
             transform: translateY(0%);
   }
-  .zx-fixed-menu .overlay .side-menu ul .slide-down.active::after {
+  .zx-nav .side-menu ul .slide-down.active::after {
     content: '\f068';
-  }
-  .zx-fixed-menu .overlay .side-menu.slide {
-    left: 0;
   }
   .categories {
     display: none;
@@ -1733,6 +1521,9 @@ html, body {
   .zx-nav .zx-container .logo img {
     margin: 0;
   }
+  .padding-top {
+    padding: 60px 0 0 0;
+  }
   .zx-header .owl-carousel .owl-dots {
     bottom: 20px;
   }
@@ -1772,27 +1563,49 @@ html, body {
 }
 
 @media (max-width: 480px) {
-  .zx-search-pop .zx-search .bootstrap-select {
-    width: 35% !important;
+  .zx-nav .zx-container .zx-search {
+    width: 96%;
   }
-  .zx-search-pop .zx-search input {
-    width: 65% !important;
-    padding: 6px 6px 6px 15px;
+  .zx-nav .zx-container .zx-search .bootstrap-select .btn.dropdown-toggle.btn-default {
+    padding: 6px 6px 6px 12px;
   }
-  .zx-search-pop .zx-search .bootstrap-select .dropdown-toggle {
-    padding: 6px 9px 6px 9px;
-  }
-  .zx-search-pop .zx-search .bootstrap-select .dropdown-toggle .caret {
+  .zx-nav .zx-container .zx-search .bootstrap-select .dropdown-toggle .caret {
     right: 8px;
+  }
+  .zx-nav .zx-container .zx-search .bootstrap-select .dropdown-menu {
+    height: 260px;
+  }
+  .zx-nav .zx-container .zx-search input {
+    padding: 6px 6px 6px 12px;
+  }
+  .zx-nav .side-menu {
+    width: 96%;
+    padding: 0;
   }
 }
 
 @media (max-width: 360px) {
-  .zx-search-pop .zx-search {
+  .zx-nav .zx-container .zx-search {
     width: 96%;
   }
-  .zx-search-pop .zx-search .bootstrap-select .dropdown-toggle {
-    padding: 6px 12px 6px 9px;
+  .zx-nav .zx-container .zx-search .bootstrap-select {
+    width: 25%;
+  }
+  .zx-nav .zx-container .zx-search .bootstrap-select .dropdown-toggle .filter-option {
+    padding: 0;
+  }
+  .zx-nav .zx-container .zx-search .bootstrap-select .btn.dropdown-toggle.btn-default {
+    padding: 6px 26px 6px 30px;
+  }
+  .zx-nav .zx-container .zx-search .bootstrap-select .dropdown-toggle .caret {
+    right: 8px;
+  }
+  .zx-nav .zx-container .zx-search .bootstrap-select .dropdown-menu {
+    height: 260px;
+  }
+  .zx-nav .zx-container .zx-search input {
+    width: 75%;
+    padding: 6px 6px 6px 12px;
   }
   .sp-offers .ad-offer-img .offer-lable p, .sp-offers .offer-img .offer-lable p {
     padding: 0 0 0 12px;
@@ -2032,42 +1845,9 @@ html[dir=rtl] .copy .copyrights span {
     margin-left: unset;
     margin-right: 16px;
   }
-  html[dir=rtl] .zx-search-pop .zx-search .bootstrap-select::after {
-    right: unset;
+  html[dir=rtl] .zx-nav .side-menu ul .slide-down::after {
     left: 0;
-  }
-  html[dir=rtl] .zx-search-pop .zx-search .bootstrap-select .dropdown-toggle .filter-option-inner-inner {
-    text-align: right;
-  }
-  html[dir=rtl] .bs3.bootstrap-select .dropdown-toggle .filter-option {
-    padding: 0;
-  }
-  html[dir=rtl] .zx-search-pop .zx-search .bootstrap-select .dropdown-toggle .caret {
     right: unset;
-    left: 20px;
-  }
-  html[dir=rtl] .zx-search-pop .zx-search input {
-    padding: 6px 33px 6px 6px;
-  }
-  html[dir=rtl] .zx-search-pop .zx-search .zx-search-icon {
-    right: unset;
-    left: 6px;
-  }
-  html[dir=rtl] .zx-fixed-menu .overlay .side-menu {
-    left: unset;
-    right: -260px;
-  }
-  html[dir=rtl] .zx-fixed-menu .overlay .side-menu.slide {
-    left: unset;
-    right: 0;
-  }
-  html[dir=rtl] .zx-fixed-menu .overlay .side-menu .close {
-    right: unset;
-    left: 16px;
-  }
-  html[dir=rtl] .zx-fixed-menu .overlay .side-menu ul .slide-down::after {
-    right: unset;
-    left: 0;
   }
   html[dir=rtl] .privileges-back .privileges .privilege .prev-img img {
     margin: 0 0 6px 0;
