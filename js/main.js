@@ -30,8 +30,8 @@ $(function() {
         $(".zx-nav").addClass("fixed-nav");
         $(".zx-header").addClass("padding-top");
     } else {
-        $(".zx-nav").remoneClass("fixed-nav");
-        $(".zx-header").remoneClass("padding-top");
+        $(".zx-nav").removeClass("fixed-nav");
+        $(".zx-header").removeClass("padding-top");
     }
 
   // $('a[data-scroll]').on("click",function (e){
